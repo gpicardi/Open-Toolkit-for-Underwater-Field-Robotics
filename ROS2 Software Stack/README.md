@@ -1,4 +1,4 @@
-# ROS2 Software Stack for Underwater Robotics
+# ROS2 Software Stack
 
 ## Disclaimer
 To be ported from BluE repository 
