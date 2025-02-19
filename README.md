@@ -18,7 +18,7 @@ The **Open Toolkit for Underwater Robotics** is designed to facilitate the devel
 - Includes a **capacitive humidity sensor** and **DHT11 temperature sensor** for early leakage detection.
 - Designed with **O-ring sealing** and a **pressure relief plug** to maintain internal pressure stability.
 
-![Waterproof Actuation Module](path/to/image1.jpg)
+![Waterproof Actuation Module](git_images/CannisterV1.jpg)
 
 ### 2. Control & Power Management
 - Based on a **Raspberry Pi 4** architecture.
