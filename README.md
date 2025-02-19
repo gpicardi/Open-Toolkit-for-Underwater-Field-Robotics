@@ -79,6 +79,20 @@ To foster collaboration and reproducibility, all hardware designs, software, and
 
 We encourage contributions, modifications, and feedback to improve the toolkit and extend its capabilities for broader underwater robotics applications.
 
+## Citing this Repository
+
+If you use this toolkit in your research or project, please cite it as follows:
+
+```
+@misc{YourRepo,
+  author = {Your Name and Contributors},
+  title = {Open Toolkit for Underwater Robotics},
+  year = {2025},
+  url = {https://github.com/your-repo},
+  note = {Accessed: YYYY-MM-DD}
+}
+```
+
 ## Future Work
 - Scaling for deeper environments beyond 30m.
 - Integration of **AI-driven control strategies** for adaptive locomotion.
