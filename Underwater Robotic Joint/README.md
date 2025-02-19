@@ -1,4 +1,4 @@
-# Mechanical Design Repository for Underwater Robotics
+# Underwater Robotics joint
 
 ## Overview
 
