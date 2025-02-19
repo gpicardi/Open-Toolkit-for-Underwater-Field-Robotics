@@ -101,4 +101,4 @@ If you use this toolkit in your research or project, please cite it as follows:
 - Enhancing modularity for broader use cases in oceanographic research.
 
 ---
-For more information, contact: **[Your Name/Email]**
+For more information, contact: **Giacomo Picardi giacomo.picardi1991@gmail.com or gpicardi@icm.csic.es**
