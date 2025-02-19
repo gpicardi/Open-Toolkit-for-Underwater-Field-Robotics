@@ -1,8 +1,8 @@
-# Electronics and Power Management Repository for Underwater Robotics
+# Control and Power Management Electronics
 
 ## Overview
 
-This repository documents the **electronics and power management** aspects of the **Open Toolkit for Underwater Robotics**. The focus is on providing robust, modular, and efficient electronic control systems suitable for underwater applications.
+This repository documents the **control and power management electronics** design of the **Open Toolkit for Underwater Robotics**. The focus is on providing robust, modular, and efficient electronic control systems suitable for underwater robotics applications.
 
 ## Electronics and Power Management System
 
@@ -12,7 +12,7 @@ This repository documents the **electronics and power management** aspects of th
 - Provides **real-time monitoring** of power consumption.
 - Integrated **humidity and temperature sensors** for early leakage detection.
 
-![Control Board](path/to/image1.jpg)
+![Control Board](../git_images/control_board.png)
 
 ### 2. Power Management Board
 - Regulates power supply for **motors, sensors, and communication devices**.
@@ -20,7 +20,7 @@ This repository documents the **electronics and power management** aspects of th
 - Includes **battery protection circuitry** for enhanced safety.
 - Designed to fit in **Blue Robotics Canisters**.
 
-![Power Management Board](path/to/image2.jpg)
+![Power Management Board](../git_images/battery_board.png)
 
 ## List of Components
 
