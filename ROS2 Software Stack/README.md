@@ -5,14 +5,14 @@ To be ported from BluE repository
 
 ## Overview
 
-This repository documents the **ROS2 Software Stack** used in the **Open Toolkit for Underwater Robotics**. The software provides modular, real-time control for underwater robotic actuators, sensors, and communication interfaces, leveraging ROS2 for distributed and scalable operation.
+This repository documents the **ROS2 Software Stack** used in the **Open Toolkit for Underwater Robotics**. The software provides modular control for underwater robotic joints, sensors, and communication interfaces, leveraging ROS2 for distributed and scalable operation.
 
 ## Software Architecture
 
 The ROS2 software stack includes:
 - **Sensor Nodes** for real-time data acquisition.
-- **Motor Control using ros2_control** for efficient motion execution.
-- **Communication Interfaces** for networked operations with a surface buoy.
+- **Motor Control and State Feedback using ros2_control** for efficient motion execution.
+- **Communication Interfaces** for networked operations (e.g. with a control PC, surface buoy, or fixed platform). 
 
 ## Sensor Nodes
 
@@ -29,7 +29,7 @@ The ROS2 software stack includes:
   ```
 
 ### 2. **IMU Node (Inertial Measurement Unit)**
-- **Sensor Used**: MPU9250
+- **Sensor Used**: BNO055
 - **Topic Published**: `/imu/data`
 - **Description**: Provides real-time orientation, acceleration, and angular velocity for state estimation.
 - **Data Format**:
@@ -41,8 +41,8 @@ The ROS2 software stack includes:
   }
   ```
 
-### 3. **Pressure Sensor Node**
-- **Sensor Used**: Blue Robotics Bar30
+### 3. **External Pressure and Temperature Sensor Node**
+- **Sensor Used**: MS8607
 - **Topic Published**: `/environment/pressure`
 - **Description**: Measures underwater depth and ambient pressure.
 - **Data Format**:
@@ -53,12 +53,34 @@ The ROS2 software stack includes:
   }
   ```
 
+  ### 4. **Internal Pressure, Temperature and Humidity Sensor Node**
+- **Sensor Used**: MS8537
+- **Topic Published**: `/environment/pressure`
+- **Description**: Measures underwater depth and ambient pressure.
+- **Data Format**:
+  ```json
+  {
+    "pressure": 1013.25,
+    "depth": 5.2
+  }
+  ```
+### 5. **Powering Monitor Sensor Node**
+- **Sensor Used**: LTC2945
+- **Topic Published**: `/environment/pressure`
+- **Description**: Measures underwater depth and ambient pressure.
+- **Data Format**:
+  ```json
+  {
+    "pressure": 1013.25,
+    "depth": 5.2
+  }
+  ```
 ## Motor Control with `ros2_control`
 
 The **ros2_control** framework is used for real-time motor actuation.
 
 ### 1. **Hardware Interface**
-- **Driver Used**: Dynamixel Workbench (RS485 communication)
+- **Driver Used**: Dynamixel Workbench (RS485 communication) https://github.com/dynamixel-community/dynamixel_hardware.
 - **Controller Interface**: `/cmd_vel`, `/joint_states`
 - **Motor Topics**:
   - `/motor/position`
@@ -101,4 +123,4 @@ velocity_controller:
 - Implementing **adaptive motor control** for energy efficiency in different environments.
 
 ---
-For more information, contact: **[Your Name/Email]**
+For more information, contact: **Giacomo Picardi giacomo.picardi1991@gmail.com or gpicardi@icm.csic.es** or **Jorge Aguirregomezcorta mail@mail**
