@@ -12,14 +12,12 @@ This repository documents the mechanical design of the **Open Toolkit for Underw
 - Features a **double O-ring seal** and **pressure relief plug**.
 - Includes **early leakage detection** with humidity and temperature sensors.
 
-![Waterproof Actuation Module](path/to/image1.jpg)
+<img src=".../git_images/canister.JPG" width="400">
 
 ### 2. Structural Components
 - Frame and mounting brackets designed for **submersion stability**.
 - Components are **CNC machined** for precision.
 - Stress analysis performed using **FEM simulations** in SolidWorks.
-
-![Structural Components](path/to/image2.jpg)
 
 ## Material Selection
 
