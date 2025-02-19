@@ -1,8 +1,8 @@
-# ROS2 Software Stack for Underwater Robotics
+# ROS2 Software Stack
 
 ## Overview
 
-This repository documents the **ROS2 Software Stack** used in the **Open Toolkit for Underwater Robotics**. The software provides modular, real-time control for underwater robotic actuators, sensors, and communication interfaces, leveraging ROS2 for distributed and scalable operation.
+This repository documents the **ROS2 Software Stack** used in the **Open Toolkit for Underwater Robotics**. The software provides modular control for underwater robotic actuators, sensors, and communication interfaces, leveraging ROS2 for distributed and scalable operation.
 
 ## Software Architecture
 
