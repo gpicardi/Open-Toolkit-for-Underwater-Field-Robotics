@@ -19,7 +19,7 @@ The **Open Toolkit for Underwater Robotics** is designed to facilitate the devel
 - Designed with **O-ring sealing** and a **pressure relief plug** to maintain internal pressure stability.
 
 <!--![Waterproof Actuation Module](git_images/CannisterV1.JPG)-->
-<img src="git_images/CannisterV1.JPG" width="400">
+<img src="git_images/canister.JPG" width="400">
 
 
 ### 2. Control & Power Management
@@ -29,14 +29,13 @@ The **Open Toolkit for Underwater Robotics** is designed to facilitate the devel
 - Features integrated **humidity monitoring** for early fault detection.
 - Compatible with Blue Robotics Canisters for integration.
 
-![Control & Power Management](path/to/image2.jpg)
+<img src="git_images/battery_board.png" width="400">
+<img src="git_images/control_board.png" width="400">
 
 ### 3. ROS 2 Software Stack
 - Modular software framework for motor control, sensing, and data acquisition.
 - Supports real-time monitoring and logging.
 - Facilitates integration with **networking and surface communication**.
-
-![ROS 2 Software Stack](path/to/image3.jpg)
 
 ## Experimental Validation
 
