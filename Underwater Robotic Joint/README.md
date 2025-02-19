@@ -12,7 +12,7 @@ This repository documents the mechanical design of the **Open Toolkit for Underw
 - Features a **double O-ring seal** and **pressure relief plug**.
 - Includes **early leakage detection** with humidity and temperature sensors.
 
-<img src=".../git_images/canister.JPG" width="400">
+<img src="../git_images/canister.JPG" width="400">
 
 ### 2. Structural Components
 - Frame and mounting brackets designed for **submersion stability**.
