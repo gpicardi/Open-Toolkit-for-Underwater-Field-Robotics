@@ -54,4 +54,4 @@ This repository documents the mechanical design of the **Open Toolkit for Underw
 - **Hyperbaric testing** to validate performance beyond 30m depth.
 
 ---
-For more information, contact: **[Your Name/Email]**
+For more information, contact: **Giacomo Picardi giacomo.picardi1991@gmail.com or gpicardi@icm.csic.es** or **Saverio Iacoponi mail@mail**
