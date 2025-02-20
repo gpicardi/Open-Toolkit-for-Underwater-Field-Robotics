@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="leg" params="suffix reflect Ox Oy Oz"> 
+
+        <!-- COXA JOINT AND LINK-->
+
+        <joint name="coxa_joint_${suffix}" type="revolute">
+                <origin xyz="${Ox} ${Oy} ${Oz}" rpy="0.0 0.0 0.0"/>
+                <parent link="body_link"/>
+                <child link="coxa_link_${suffix}"/>
+                <limit effort="100" velocity="100.0" lower="-3.14" upper="3.14" />
+                <axis xyz="0 0 1"/>
+                <dynamics damping="0.7"/>
+        </joint>
+
+        <link name="coxa_link_${suffix}">
+            <visual>
+                <origin xyz="${coxa_link_Ox} ${reflect*coxa_link_Oy} ${coxa_link_Oz}" rpy="0.0 ${coxa_link_Ry} 0.0"/>
+                <geometry>
+                    <cylinder length="${coxa_link_length}" radius="${coxa_link_radius}"/>
+                </geometry>
+                <material name="red"/>
+            </visual>
+            <collision>
+                <origin xyz="${coxa_link_Ox} ${coxa_link_Oy} ${coxa_link_Oz}" rpy="0.0 ${coxa_link_Ry} 0.0"/>
+                <geometry>
+                    <cylinder length="${coxa_link_length}" radius="${coxa_link_radius}"/>
+                </geometry>
+            </collision>
+            <xacro:inertial_cylinder mass="${coxa_link_mass}" length="${coxa_link_length}" radius="${coxa_link_radius}">
+                <origin xyz="${coxa_link_Ox} ${coxa_link_Oy} ${coxa_link_Oz}" rpy="0.0 ${coxa_link_Ry} 0.0"/>
+            </xacro:inertial_cylinder>
+        </link>
+
+        <!-- FEMUR JOINT AND LINK-->
+
+        <joint name="femur_joint_${suffix}" type="revolute">
+            <origin xyz="${femur_joint_Ox} ${reflect*femur_joint_Oy} ${femur_joint_Oz}" rpy="0.0 ${femur_joint_Ry} 0.0"/>
+            <parent link="coxa_link_${suffix}"/>
+            <child link="femur_link_${suffix}"/>
+            <limit effort="100" velocity="100.0" lower="-3.14" upper="3.14" />
+            <axis xyz="0 0 ${reflect}"/>
+            <dynamics damping="0.7"/>
+        </joint>
+
+        <link name="femur_link_${suffix}">
+            <visual>
+                <origin xyz="${femur_link_Ox} 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <box size="${femur_link_dx} ${femur_link_dy} ${femur_link_dz}"/>
+                </geometry>
+                <material name="orange"/>
+            </visual>
+            <collision>
+                <origin xyz="${femur_link_Ox} 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <box size="${femur_link_dx} ${femur_link_dy} ${femur_link_dz}"/>
+                </geometry>
+            </collision>
+            <xacro:inertial_box mass="${femur_link_mass}" x="${femur_link_dx}" y="${femur_link_dy}" z='${femur_link_dz}'>
+                <origin xyz="${femur_link_Ox} 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </xacro:inertial_box>
+        </link>
+
+        <!-- TIBIA JOINT AND LINK -->
+        <joint name="tibia_joint_${suffix}" type="revolute">
+            <origin xyz="${tibia_joint_Ox} ${tibia_joint_Oy} ${tibia_joint_Oz}" rpy="0.0 0.0 0.0"/>
+            <parent link="femur_link_${suffix}"/>
+            <child link="tibia_link_${suffix}"/>
+            <limit effort="100" velocity="100.0" lower="-3.14" upper="3.14" />
+            <axis xyz="0 0 ${reflect}"/>
+            <dynamics damping="0.7"/>
+        </joint>
+
+        <link name="tibia_link_${suffix}">
+            <visual>
+                <origin xyz="${tibia_link_Ox} 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <box size="${tibia_link_dx} ${tibia_link_dy} ${tibia_link_dz}"/>
+                </geometry>
+                <material name="black"/>
+            </visual>
+            <collision>
+                <origin xyz="${tibia_link_Ox} 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <box size="${tibia_link_dx} ${tibia_link_dy} ${tibia_link_dz}"/>
+                </geometry>
+            </collision>
+            <xacro:inertial_box mass="${tibia_link_mass}" x="${tibia_link_dx}" y="${tibia_link_dy}" z="${tibia_link_dz}">
+                <origin xyz="${tibia_link_Ox} 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </xacro:inertial_box>
+        </link>
+
+    </xacro:macro>
+</robot>

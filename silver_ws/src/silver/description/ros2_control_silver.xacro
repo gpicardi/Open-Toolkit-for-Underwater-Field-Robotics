@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <ros2_control name="SilverSystem" type="system">
+        <xacro:if value="$(arg sim_mode)">
+            <hardware>
+                <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+            </hardware>
+        </xacro:if>
+        <xacro:unless value="$(arg sim_mode)">
+            <hardware>
+                <plugin>dynamixel_hardware/DynamixelHardware</plugin>
+                <param name="usb_port">/dev/ttyUSB0</param>
+                <param name="baud_rate">1000000</param>
+            </hardware>
+        </xacro:unless>
+
+        
+        <xacro:leg_control suffix="0" coxa_reduction="-1.0" coxa_offset="0.35" femur_reduction="-1.0" femur_offset="-0.30" tibia_reduction="1.0" tibia_offset="-0.55"/>
+        <xacro:leg_control suffix="1" coxa_reduction="-1.0" coxa_offset="-0.47" femur_reduction="-1.0" femur_offset="-1.8" tibia_reduction="1.0" tibia_offset="-0.1"/>
+        <xacro:leg_control suffix="2" coxa_reduction="-1.0" coxa_offset="0.82" femur_reduction="1.0" femur_offset="-0.3" tibia_reduction="-1.0" tibia_offset="-0.6"/>
+        <xacro:leg_control suffix="3" coxa_reduction="-1.0" coxa_offset="0.51" femur_reduction="1.0" femur_offset="0.5" tibia_reduction="-1.0" tibia_offset="1.6"/> 
+        <xacro:leg_control suffix="4" coxa_reduction="-1.0" coxa_offset="0.77" femur_reduction="1.0" femur_offset="-1.16" tibia_reduction="-1.0" tibia_offset="2.26"/>
+        <xacro:leg_control suffix="5" coxa_reduction="-1.0" coxa_offset="-0.07" femur_reduction="-1.0" femur_offset="-0.8" tibia_reduction="1.0" tibia_offset="1.49"/>
+    </ros2_control>  
+
+</robot>

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robot">
+
+    <!--xacro:arg name="use_ros2_control" default="true"/-->
+    <xacro:arg name="sim_mode" default="false"/>
+     <!-- Import Gazebo related stuff -->
+    <xacro:include filename="gazebo_control.xacro"/>
+     <!-- Import Leg geometry Macro -->
+    <xacro:include filename="robot_leg.xacro"/>
+     <!-- Import Leg control Macro -->
+    <xacro:include filename="ros2_control_leg.xacro"/>
+     <!-- Import ROS control -->
+    <xacro:include filename="ros2_control_silver.xacro"/>
+     <!-- Import Inertia Macros -->
+    <xacro:include filename="inertial_macros.xacro"/>
+    <!-- Import Constants -->
+    <xacro:include filename="silver_constants.xacro"/>
+    <!-- Import Rviz colors -->
+    <xacro:include filename="colors_rviz.xacro"/>
+    
+    <!-- WORLD LINK -->
+
+    <link name = "world"></link>
+
+    <!-- BODY JOINT AND LINK -->
+
+    <joint name="body_joint" type="fixed">
+        <origin xyz="0.0 0.0 ${body_link_height}" rpy="0.0 0.0 0.0"/>
+        <parent link="world"/>
+        <child link="body_link"/>
+    </joint>
+
+    <link name="body_link">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="${body_link_x_dim} ${body_link_y_dim} ${body_link_z_dim}"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="${body_link_x_dim} ${body_link_y_dim} ${body_link_z_dim}"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="${body_link_mass}" x="${body_link_x_dim}" y ="${body_link_y_dim}" z="${body_link_z_dim}">
+            <origin xyz="0.0 0 0.0"/>
+        </xacro:inertial_box>
+    </link>
+
+    <xacro:leg suffix="0" reflect="1" Ox="0.35" Oy="0.3" Oz="-0.15"/>
+    <xacro:leg suffix="1" reflect="1" Ox="0.0" Oy="0.3" Oz="-0.15"/>
+    <xacro:leg suffix="2" reflect="1" Ox="-0.35" Oy="0.3" Oz="-0.15"/>
+    <xacro:leg suffix="3" reflect="-1" Ox="0.35" Oy="-0.3" Oz="-0.15"/>
+    <xacro:leg suffix="4" reflect="-1" Ox="0.0" Oy="-0.3" Oz="-0.15"/>
+    <xacro:leg suffix="5" reflect="-1" Ox="-0.35" Oy="-0.3" Oz="-0.15"/>
+
+</robot>

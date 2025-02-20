@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+    <!-- Constant parameters -->
+    <xacro:property name="body_link_mass" value="2.0" /> <!-- Kg -->
+    <xacro:property name="body_link_height" value="1.0" /> <!-- m -->
+    <xacro:property name="body_link_x_dim" value="0.8" /> <!-- m -->
+    <xacro:property name="body_link_y_dim" value="0.6" /> <!-- m -->
+    <xacro:property name="body_link_z_dim" value="0.3" /> <!-- m -->
+
+    <xacro:property name="coxa_link_mass" value="0.5" /> <!-- Kg -->
+    <xacro:property name="coxa_joint_Ox" value="0.0" /> <!-- m -->
+    <xacro:property name="coxa_joint_Oy" value="0.0" /> <!-- m -->
+    <xacro:property name="coxa_joint_Oz" value="0.0" /> <!-- m -->
+    <xacro:property name="coxa_link_Ox" value="0.03" /> <!-- m -->
+    <xacro:property name="coxa_link_Oy" value="0.05" /> <!-- m -->
+    <xacro:property name="coxa_link_Oz" value="-0.05" /> <!-- m -->
+    <xacro:property name="coxa_link_Ry" value="1.57" /> <!-- rad -->
+    <xacro:property name="coxa_link_length" value="0.1" /> <!-- m -->
+    <xacro:property name="coxa_link_radius" value="0.05" /> <!-- m -->
+
+    <xacro:property name="femur_link_mass" value="0.5" /> <!-- Kg -->
+    <xacro:property name="femur_joint_Ox" value="0.09" /> <!-- m -->
+    <xacro:property name="femur_joint_Oy" value="0.05" /> <!-- m -->
+    <xacro:property name="femur_joint_Oz" value="-0.05" /> <!-- m -->
+    <xacro:property name="femur_joint_Ry" value="1.57" /> <!-- rad -->
+    <xacro:property name="femur_link_Ox" value="0.2" /> <!-- m -->
+    <xacro:property name="femur_link_Oy" value="0.05" /> <!-- m -->
+    <xacro:property name="femur_link_Oz" value="-0.05" /> <!-- m -->
+    <xacro:property name="femur_link_dx" value="0.4" /> <!-- m -->
+    <xacro:property name="femur_link_dy" value="0.03" /> <!-- m -->
+    <xacro:property name="femur_link_dz" value="0.01" /> <!-- m -->
+
+    <xacro:property name="tibia_link_mass" value="0.5" /> <!-- Kg -->
+    <xacro:property name="tibia_joint_Ox" value="0.4" /> <!-- m -->
+    <xacro:property name="tibia_joint_Oy" value="0.0" /> <!-- m -->
+    <xacro:property name="tibia_joint_Oz" value="0.01" /> <!-- m -->
+    <xacro:property name="tibia_link_Ox" value="0.15" /> <!-- m -->
+    <xacro:property name="tibia_link_Oy" value="0.0" /> <!-- m -->
+    <xacro:property name="tibia_link_Oz" value="0.0" /> <!-- m -->
+    <xacro:property name="tibia_link_dx" value="0.3" /> <!-- m -->
+    <xacro:property name="tibia_link_dy" value="0.03" /> <!-- m -->
+    <xacro:property name="tibia_link_dz" value="0.01" /> <!-- m -->
+
+    <xacro:property name="foot_link_mass" value="0.1" /> <!-- Kg -->
+    <xacro:property name="foot_joint_Ox" value="0.3" /> <!-- m -->
+    <xacro:property name="foot_joint_Oy" value="0.0" /> <!-- m -->
+    <xacro:property name="foot_joint_Oz" value="0.0" /> <!-- m -->
+    <xacro:property name="foot_joint_Rz" value="-0.785" /> <!-- rad -->
+    <xacro:property name="foot_link_Ox" value="0.01" /> <!-- m -->
+    <xacro:property name="foot_link_Oy" value="0.0" /> <!-- m -->
+    <xacro:property name="foot_link_Oz" value="0.0" /> <!-- m -->
+    <xacro:property name="foot_link_dx" value="0.05" /> <!-- m -->
+    <xacro:property name="foot_link_dy" value="0.01" /> <!-- m -->
+    <xacro:property name="foot_link_dz" value="0.01" /> <!-- m -->
+
+    <xacro:property name="coxa_offset_0" value="-0.23" /> <!-- rad -->
+    <xacro:property name="femur_offset_0" value="-0.10" /> <!-- rad -->
+    <xacro:property name="tibia_offset_0" value="1.85" /> <!-- rad -->
+    <xacro:property name="coxa_offset_1" value="0.0" /> <!-- rad -->
+    <xacro:property name="femur_offset_1" value="0.0" /> <!-- rad -->
+    <xacro:property name="tibia_offset_1" value="0.0" /> <!-- rad -->
+    <xacro:property name="coxa_offset_2" value="0.0" /> <!-- rad -->
+    <xacro:property name="femur_offset_2" value="0.0" /> <!-- rad -->
+    <xacro:property name="tibia_offset_2" value="0.0" /> <!-- rad -->
+    <xacro:property name="coxa_offset_3" value="0.0" /> <!-- rad -->
+    <xacro:property name="femur_offset_3" value="0.0" /> <!-- rad -->
+    <xacro:property name="tibia_offset_3" value="0.0" /> <!-- rad -->
+    <xacro:property name="coxa_offset_4" value="0.0" /> <!-- rad -->
+    <xacro:property name="femur_offset_4" value="0.0" /> <!-- rad -->
+    <xacro:property name="tibia_offset_4" value="0.0" /> <!-- rad -->
+    <xacro:property name="coxa_offset_5" value="0.0" /> <!-- rad -->
+    <xacro:property name="femur_offset_5" value="0.0" /> <!-- rad -->
+    <xacro:property name="tibia_offset_5" value="0.0" /> <!-- rad -->
+
+    <xacro:property name="coxa_reduction_0" value="1.0" /> <!-- rad -->
+    <xacro:property name="femur_reduction_0" value="-1.0" /> <!-- rad -->
+    <xacro:property name="tibia_reduction_0" value="1.0" /> <!-- rad -->
+    <xacro:property name="coxa_reduction_1" value="1.0" /> <!-- rad -->
+    <xacro:property name="femur_reduction_1" value="1.0" /> <!-- rad -->
+    <xacro:property name="tibia_reduction_1" value="1.0" /> <!-- rad -->
+    <xacro:property name="coxa_reduction_2" value="1.0" /> <!-- rad -->
+    <xacro:property name="femur_reduction_2" value="1.0" /> <!-- rad -->
+    <xacro:property name="tibia_reduction_2" value="1.0" /> <!-- rad -->
+    <xacro:property name="coxa_reduction_3" value="1.0" /> <!-- rad -->
+    <xacro:property name="femur_reduction_3" value="1.0" /> <!-- rad -->
+    <xacro:property name="tibia_reduction_3" value="1.0" /> <!-- rad -->
+    <xacro:property name="coxa_reduction_4" value="1.0" /> <!-- rad -->
+    <xacro:property name="femur_reduction_4" value="1.0" /> <!-- rad -->
+    <xacro:property name="tibia_reduction_4" value="1.0" /> <!-- rad -->
+    <xacro:property name="coxa_reduction_5" value="1.0" /> <!-- rad -->
+    <xacro:property name="femur_reduction_5" value="1.0" /> <!-- rad -->
+    <xacro:property name="tibia_reduction_5" value="1.0" /> <!-- rad -->
+
+</robot>
