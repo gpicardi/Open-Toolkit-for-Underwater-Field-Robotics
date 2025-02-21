@@ -18,63 +18,45 @@ The ROS2 software stack includes:
 
 ### 1. **Humidity and Temperature Sensor Node**
 - **Sensor Used**: DHT11
-- **Topic Published**: `/environment/humidity_temperature`
 - **Description**: Monitors the internal canister conditions to detect early leakage or overheating.
+- **Topic Published**: `/dht11_sensor_data` (silver_interfaces/msg/DhtSensorData)
 - **Data Format**:
-  ```json
-  {
-    "humidity": 45.3,
-    "temperature": 22.5
-  }
+  ```\
+  std_msgs/String location
+  std_msgs/Float64 temperature
+  std_msgs/Float64 humidity
   ```
 
 ### 2. **IMU Node (Inertial Measurement Unit)**
 - **Sensor Used**: BNO055
-- **Topic Published**: `/imu/data`
 - **Description**: Provides real-time orientation, acceleration, and angular velocity for state estimation.
-- **Data Format**:
-  ```json
-  {
-    "orientation": {"x": 0.1, "y": 0.2, "z": 0.3, "w": 1.0},
-    "angular_velocity": {"x": 0.01, "y": -0.02, "z": 0.005},
-    "linear_acceleration": {"x": 0.0, "y": 9.81, "z": 0.0}
-  }
-  ```
+- **Topic Published**: `/imu/data` (sensor_msgs/msg/Imu)
+- **Reference Repository**: https://github.com/flynneva/bno055
 
-### 3. **External Pressure and Temperature Sensor Node**
+### 3. **Internal Pressure, Temperature and Humidity Sensor Node**
 - **Sensor Used**: MS8607
-- **Topic Published**: `/environment/pressure`
-- **Description**: Measures underwater depth and ambient pressure.
-- **Data Format**:
-  ```json
-  {
-    "pressure": 1013.25,
-    "depth": 5.2
-  }
-  ```
+- **Description**: Measures pressure, temperature and humidity inside the control canister.
+- **Topic Published**: 
+  - `/ms8607/pressure` (std_msgs/Float64)
+  - `/ms8607/temperature` (std_msgs/Float64)
+  - `/ms8607/humidity` (std_msgs/Float64)
 
-  ### 4. **Internal Pressure, Temperature and Humidity Sensor Node**
+### 4. **External Pressure, Temperature and Depth Sensor Node**
 - **Sensor Used**: MS8537
-- **Topic Published**: `/environment/pressure`
-- **Description**: Measures underwater depth and ambient pressure.
-- **Data Format**:
-  ```json
-  {
-    "pressure": 1013.25,
-    "depth": 5.2
-  }
-  ```
+- **Description**: Measures underwater pressure, temperature and depth.
+- **Topic Published**:
+  - `/ms8537/pressure` (std_msgs/Float64)
+  - `/ms8537/temperature` (std_msgs/Float64)
+  - `/ms8537/depth` (std_msgs/Float64)
+
 ### 5. **Powering Monitor Sensor Node**
 - **Sensor Used**: LTC2945
-- **Topic Published**: `/environment/pressure`
-- **Description**: Measures underwater depth and ambient pressure.
-- **Data Format**:
-  ```json
-  {
-    "pressure": 1013.25,
-    "depth": 5.2
-  }
-  ```
+- **Description**: Measures power monitoring.
+- **Topic Published**:
+  - `/ltc2945/vin` (std_msgs/Float64)
+  - `/ltc2945/power` (std_msgs/Float64)
+  - `/ltc2945/current` (std_msgs/Float64)
+
 ## Motor Control with `ros2_control`
 
 The **ros2_control** framework is used for real-time motor actuation.
