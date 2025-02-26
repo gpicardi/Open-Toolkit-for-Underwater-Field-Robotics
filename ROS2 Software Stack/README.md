@@ -105,4 +105,6 @@ velocity_controller:
 - Implementing **adaptive motor control** for energy efficiency in different environments.
 
 ---
-For more information, contact: **Giacomo Picardi giacomo.picardi1991@gmail.com or gpicardi@icm.csic.es** or **Jorge Aguirregomezcorta mail@mail**
+For more information, contact:
+- **Giacomo Picardi: giacomo.picardi1991@gmail.com or gpicardi@icm.csic.es**
+- **Jorge Aguirregomezcorta Aina: jaguirregomezcorta@gmail.com or jaguirregomezcorta@icm.csic.es**

@@ -22,16 +22,16 @@ def generate_launch_description():
 
     position_goals = PathJoinSubstitution(
         [
-            FindPackageShare("silver"),
+            FindPackageShare("rrr_manipulator"),
             "config",
-            "silver_leg_joint_trajectory_publisher.yaml",
+            "rrr_manipulator_trajectory_publisher.yaml",
         ]
     )
 
     return LaunchDescription(
         [
             Node(
-                package="silver",
+                package="rrr_manipulator",
                 executable="publisher_joint_trajectory_controller.py",
                 name="publisher_joint_trajectory_controller",
                 parameters=[position_goals],

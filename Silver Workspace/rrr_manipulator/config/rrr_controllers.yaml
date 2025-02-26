@@ -15,24 +15,9 @@ controller_manager:
 forward_position_controller:
   ros__parameters:
     joints:
-      - coxa_joint_0
-      - femur_joint_0
-      - tibia_joint_0
-      - coxa_joint_1
-      - femur_joint_1
-      - tibia_joint_1
-      - coxa_joint_2
-      - femur_joint_2
-      - tibia_joint_2
-      - coxa_joint_3
-      - femur_joint_3
-      - tibia_joint_3
-      - coxa_joint_4
-      - femur_joint_4
-      - tibia_joint_4
-      - coxa_joint_5
-      - femur_joint_5
-      - tibia_joint_5
+      - coxa_joint
+      - femur_joint
+      - tibia_joint
 
     interface_name: position
 
