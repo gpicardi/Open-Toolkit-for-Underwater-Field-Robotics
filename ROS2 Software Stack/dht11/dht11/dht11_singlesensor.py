@@ -1,6 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from silver_interfaces.msg import DhtSensorData  # Import your custom message
+from rrr_interfaces.msg import DhtSensorData  # Import your custom message
 import adafruit_dht
 import board
 import time
