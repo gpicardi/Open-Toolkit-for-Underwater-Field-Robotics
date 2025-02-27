@@ -1,7 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 30 #30
-    #use_sim_time: true
+    update_rate: 30
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
@@ -21,11 +20,11 @@ forward_position_controller:
 
     interface_name: position
 
-    action_monitor_rate: 20.0 # Defaults to 20
+    action_monitor_rate: 20.0
 
-    allow_partial_joints_goal: false # Defaults to false
+    allow_partial_joints_goal: false
     open_loop_control: true
     allow_integration_in_goal_trajectories: true
     constraints:
-      stopped_velocity_tolerance: 0.01 # Defaults to 0.01
-      goal_time: 0.0 # Defaults to 0.0 (start immediately)
+      stopped_velocity_tolerance: 0.01
+      goal_time: 0.0

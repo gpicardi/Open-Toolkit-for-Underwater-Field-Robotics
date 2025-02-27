@@ -63,47 +63,65 @@ The **ros2_control** framework is used for real-time motor actuation.
 
 ### 1. **Hardware Interface**
 - **Driver Used**: Dynamixel Workbench (RS485 communication) https://github.com/dynamixel-community/dynamixel_hardware.
-- **Controller Interface**: `/cmd_vel`, `/joint_states`
-- **Motor Topics**:
-  - `/motor/position`
-  - `/motor/velocity`
-  - `/motor/effort`
-
+- **XML RRR_Manipulator Xacro File**: Simple transmission mechanism added to set offset and reduction of the Dynamixel Actuators
+```xml
+<transmission name="coxa_transmission">
+  <plugin>transmission_interface/SimpleTransmission</plugin>
+  <actuator name="coxa_actuator" role="coxa_actuator"/>
+  <joint name="coxa_joint" role="coxa_joint">
+      <mechanical_reduction>${coxa_reduction}</mechanical_reduction>
+      <offset>${coxa_offset}</offset>
+  </joint>
+</transmission>
+```
 ### 2. **Controller Configuration**
 A sample `ros2_control` configuration for the motor driver:
 ```yaml
 controller_manager:
   ros__parameters:
-    update_rate: 100  # Hz
+    update_rate: 30
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
-    velocity_controller:
-      type: velocity_controllers/JointGroupVelocityController
+    forward_position_controller:
+      type: forward_command_controller/ForwardCommandController
 
-velocity_controller:
+    joint_trajectory_position_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+forward_position_controller:
   ros__parameters:
     joints:
-      - leg_joint_1
-      - leg_joint_2
-      - leg_joint_3
-    gains:
-      leg_joint_1: {p: 5.0, i: 0.1, d: 0.01}
-      leg_joint_2: {p: 5.0, i: 0.1, d: 0.01}
-      leg_joint_3: {p: 5.0, i: 0.1, d: 0.01}
+      - coxa_joint
+      - femur_joint
+      - tibia_joint
+
+    interface_name: position
+
+    action_monitor_rate: 20.0
+
+    allow_partial_joints_goal: false
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+    constraints:
+      stopped_velocity_tolerance: 0.01
+      goal_time: 0.0
+
 ```
 
 ### 3. **Motor Control Execution**
-- Commands are sent via `/cmd_vel` for velocity control.
+- Position commands are sent via `/forward_position_controller/commands`. I.e.:
+  ```
+  ros2 topic pub /forward_position_controller/commands std_msgs/msg/Float64MultiArray "data: - 0.75 - 0.8 - 2.3"
+  ```
 - Position-based control can be implemented via `/motor/position`.
-- State feedback is provided via `/joint_states`.
+- State feedback (position, velocity, effort) is provided via `/joint_states`.
 
-## Future Improvements
-- Integration of **ROS2 Lifecycle Nodes** for better resource management.
-- Adding **sensor fusion** between IMU and pressure sensors for improved localization.
-- Implementing **adaptive motor control** for energy efficiency in different environments.
-
+### 4. RRR Manipulator Application
+- The toolkit is applied to the case of an RRR serial manipulator.
+- Robot description and controller configuration are contained in the /rrr_manipulator package.
+- Replace such directory with your own description in order to test your own robot implementation.
 ---
 For more information, contact:
 - **Giacomo Picardi: giacomo.picardi1991@gmail.com or gpicardi@icm.csic.es**
