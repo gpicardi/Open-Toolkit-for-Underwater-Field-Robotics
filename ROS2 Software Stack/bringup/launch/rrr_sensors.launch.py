@@ -23,12 +23,6 @@ def generate_launch_description():
         parameters = [bno055_config]
     )
 
-    dht11_spawner = Node(
-        package="dht11",
-        executable="dht11",
-        output="screen"
-    )
-
     ltc2945_spawner = Node(
         package="ltc2945",
         executable="ltc2945",
@@ -47,21 +41,24 @@ def generate_launch_description():
         output="screen"
     )
 
-    ms8607_i2c1_spawner = Node(
-        package="ms8607",
-        executable="ms8607_i2c1",
-        #executable="ms8607",
-        output="screen"
-    )
-
     # Run the node
+    gpio_pins = [4, 5, 6, 7, 9, 10, 11, 13, 14, 15, 16, 17, 20, 21, 22, 23, 24, 25, 26, 27] 
+    sensor_locations = ['F3','T1','F1','F4','C5','F5','ControlC','CameraC','C3','T4','T3','T2','C4','T5','C2','T0','F2','C0','C1','F0']
+    dht11_nodes = [Node(
+            package='dht11',
+            executable='dht11_s',
+            name=f'dht11_sensor_node_{sensor_locations[i]}',
+            parameters=[
+                {'gpio_pin': gpio_pins[i], 'sensor_type': 'DHT11', 'sensor_location': sensor_locations[i]},
+            ],
+        ) for i in range(0, len(gpio_pins))]
+
     return LaunchDescription([
         bno055_spawner,
-        dht11_spawner,
         ltc2945_spawner,
         ms5837_spawner,
         ms8607_i2c0_spawner,
-        #ms8607_i2c1_spawner
+        *dht11_nodes
     ])
 
 
