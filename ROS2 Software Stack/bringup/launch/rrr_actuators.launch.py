@@ -17,21 +17,28 @@ def generate_launch_description():
     file_subpath = 'description/rrr_manipulator.xacro'
     xacro_file = os.path.join(get_package_share_directory(pkg_name),file_subpath)
     robot_description_raw = xacro.process_file(xacro_file).toxml()
-    robot_description_config = Command(['xacro ', xacro_file, ' use_ros2_control:=', use_ros2_control, ' sim_mode:=', use_sim_time])
-
     # Specify controllers configurations
     controller_config = os.path.join(
         get_package_share_directory(
             pkg_name), "config", "rrr_controllers.yaml" 
     )
+    # Init Default Class Variables
+    #use_sim_time = False
+    #use_ros2_control = True
 
     # Include Robot State Publisher Launch (RSP)
 
     # Check if we're told to use sim time
-    use_sim_time = LaunchConfiguration('use_sim_time')
-    use_ros2_control = LaunchConfiguration('use_ros2_control')
+    #try:
+        #use_sim_time = LaunchConfiguration('use_sim_time')
+        #use_ros2_control = LaunchConfiguration('use_ros2_control')
+    #except:
+     #   print("Config values failed!")
+    #finally:
+    robot_description_config = Command(['xacro ', xacro_file]) #  ' use_ros2_control:=', use_ros2_control, ' sim_mode:=', use_sim_time
+   
     # Configure the node
-    params={'robot_description': robot_description_config, 'use_sim_time': use_sim_time}
+    params={'robot_description': robot_description_config} #, 'use_sim_time': s
     node_robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
@@ -60,29 +67,13 @@ def generate_launch_description():
         arguments=["forward_position_controller", "--controller-manager", "/controller_manager"],
         output="screen"
     )
-
-    forward_velocity_controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["forward_velocity_controller", "--controller-manager", "/controller_manager", "--inactive"],
-        output="screen"
-    )
-
-    joint_trajectory_position_controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["joint_trajectory_position_controller", "--controller-manager", "/controller_manager", "--inactive"],
-        output="screen"
-    )
-
+    
     # Run the node
     return LaunchDescription([
         controller_manager,
         node_robot_state_publisher,
         joint_state_broadcaster_spawner,
-        joint_trajectory_position_controller_spawner,
-        forward_position_controller_spawner,
-        forward_velocity_controller_spawner
+        forward_position_controller_spawner
     ])
 
 

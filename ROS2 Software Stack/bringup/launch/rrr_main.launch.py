@@ -10,19 +10,19 @@ from launch_ros.actions import Node
 def generate_launch_description():
 
     # Specify the name of the package and path to xacro file within the package
-    pkg_name = 'launch'
+    pkg_name = 'bringup'
 
     # Include RRR Actuator Launch
     rrr_actuators = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory(pkg_name), 'rrr_actuators.launch.py'
-                )]), launch_arguments={'use_sim_time': 'false', 'use_ros2_control': 'true'}.items()
+                    get_package_share_directory(pkg_name), 'launch/rrr_actuators.launch.py'
+                )])#, launch_arguments={'use_sim_time': 'false'}.items() # , 'use_ros2_control': 'true'
     )
 
     # Include RRR Sensor Launch
     rrr_sensors = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory(pkg_name), 'rrr_sensors.launch.py'
+                    get_package_share_directory(pkg_name), 'launch/rrr_sensors.launch.py'
                 )]))
 
     # Include Torches Control Launch

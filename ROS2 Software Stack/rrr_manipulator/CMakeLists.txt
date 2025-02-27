@@ -42,13 +42,12 @@ ament_python_install_package(${PROJECT_NAME})
 
 #install python executables
 install(
-  DIRECTORY config description launch scripts
+  DIRECTORY config description scripts
   DESTINATION share/${PROJECT_NAME}
 )
 
 install(PROGRAMS
-  scripts/forward_position_publisher.py  scripts/position_trajectory_publisher.py
-  scripts/follow_joint_position_trajectory_action_client.py  scripts/trajectory_publisher.py
+  scripts/forward_position_publisher.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
