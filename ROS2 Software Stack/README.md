@@ -19,7 +19,7 @@ The ROS2 software stack includes:
 ### 1. **Humidity and Temperature Sensor Node**
 - **Sensor Used**: DHT11
 - **Description**: Monitors the internal canister conditions to detect early leakage or overheating.
-- **Topic Published**: `/dht11_sensor_data` (silver_interfaces/msg/DhtSensorData)
+- **Topic Published**: `/dht11_sensor_data` (rrr_interfaces/msg/DhtSensorData)
 - **Data Format**:
   ```\
   std_msgs/String location
