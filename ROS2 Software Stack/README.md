@@ -113,7 +113,9 @@ forward_position_controller:
 ### 3. **Motor Control Execution**
 - Position commands are sent via `/forward_position_controller/commands`. I.e.:
   ```
-  ros2 topic pub /forward_position_controller/commands std_msgs/msg/Float64MultiArray "data: - 0.75 - 0.8 - 2.3"
+  ros2 topic pub --once /forward_position_controller/commands std_msgs/msg/Float64MultiArray "data: - 0.75 - 0.8 - 2.3"
+
+  ros2 topic pub --once /forward_position_controller/commands std_msgs/msg/Float64MultiArray "{data:  [2.0, 2.0, 2.0]}"
   ```
 - Position-based control can be implemented via `/motor/position`.
 - State feedback (position, velocity, effort) is provided via `/joint_states`.
