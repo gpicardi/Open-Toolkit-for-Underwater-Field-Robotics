@@ -1,4 +1,4 @@
-# Open Toolkit for Underwater Robotics
+# Open Toolkit for Underwater Field Robotics
 
 ## Overview
 
