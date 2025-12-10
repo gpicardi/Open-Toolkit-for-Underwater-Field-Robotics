@@ -85,12 +85,11 @@ We encourage contributions, modifications, and feedback to improve the toolkit a
 If you use this toolkit in your research or project, please cite it as follows:
 
 ```
-@misc{YourRepo,
-  author = {Your Name and Contributors},
-  title = {Open Toolkit for Underwater Robotics},
+@misc{OpenFieldRoboticToolkit,
+  author = {G. Picardi, S., M. Carandell, J.Aguirregomezcorta, M. Chellpurath, J. del Rio, M. Calisti, and J. Aguzzi},
+  title = {Open Toolkit for Underwater Field Robotics},
   year = {2025},
-  url = {https://github.com/your-repo},
-  note = {Accessed: YYYY-MM-DD}
+  url = {[https://github.com/your-repo](https://github.com/gpicardi/Open-Toolkit-for-Underwater-Field-Robotics/)}
 }
 ```
 
