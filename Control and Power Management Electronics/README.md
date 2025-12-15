@@ -27,6 +27,7 @@ This repository documents the **control and power management electronics** desig
 | Component            | Specification                 | Function                                 |
 |---------------------|----------------------------|-----------------------------------------|
 | Single board computer    | Raspberry Pi 4             | Controls all robotic operations          |
+| IMU         | BNO055       | 9 DOF IMU with fused absolute orientation     | Raw accelerations, angular velocities, magnetic field and fused absolute orientation
 | Humidity and temperature sensor         | DHT11       | Early leakage detection within control and motor canisters     |
 | Power monitor      | LTC2945       | Monitoring Voltage, Current and Power consumption  |
 | Pressure, humidity and temperature sensor | MS5837 | Early leakage detection within battery canister          |
