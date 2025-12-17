@@ -9,7 +9,7 @@ This repository documents the **control and power management electronics** desig
 ### 1. Control Board
 - Based on **Raspberry Pi 4** architecture.
 - Supports **RS485 communication** for **Dynamixel** actuators.
-- Provides interface for the following sensor devices: BNO055 **IMU**, DHT11 **temperature and humidity sensors**, ltc2945 **power monitor**, ms5837 **pressure, temperature and humidity sensor**, ms8607 **external pressure sensor**.
+- Provides interface for the following sensor devices: BNO055 **IMU**, DHT11 **temperature and humidity sensors**, ltc2945 **power monitor**, DHT11 **temperature and humidity sensor**, ms8607 **external pressure sensor**.
 - Provides interface for **PWM devices** such as torches, servomotors
 - Supports 12V power input and it integrated a **DCDC converter** to supply **5V**
 
@@ -18,7 +18,7 @@ This repository documents the **control and power management electronics** desig
 ### 2. Power Management Board
 - Regulates power supply for **motors, sensors, and communication devices**.
 - Supports up to **24V power input** from battery, designed to work with a 12V 25Ah DC lithium polymer battery*.
-- Includes i2c line to for internal **pressure, temperature and humidity sensor** .
+- Includes i2c line to for internal **pressure, temperature and humidity sensor MS5837** .
 
 ![Power Management Board](../git_images/battery_board.png)
 
