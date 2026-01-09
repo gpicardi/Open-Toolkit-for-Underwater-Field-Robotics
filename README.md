@@ -1,8 +1,8 @@
-# Open Toolkit for Underwater Field Robotics
+# Open-Source Toolkit for Underwater Manipulation and Bio-inspired Robotics
 
 ## Overview
 
-The **Open Toolkit for Underwater Robotics** is designed to facilitate the development of underwater robotic manipulators and legged systems. It provides modular, cost-effective, and open-source solutions for waterproofing, control, power management, and software integration, enabling researchers and developers to prototype and test underwater robotic systems more efficiently.
+The **Open-Source Toolkit for Underwater Manipulation and Bio-inspired Robotics** is designed to facilitate the development of underwater robotic manipulators and legged systems. It provides modular, cost-effective, and open-source solutions for waterproofing, control, power management, and software integration, enabling researchers and developers to prototype and test underwater robotic systems more efficiently.
 
 ### Key Features
 - **Waterproof Canisters**: Designed for Dynamixel actuators, tested up to 30m depth.
@@ -13,7 +13,7 @@ The **Open Toolkit for Underwater Robotics** is designed to facilitate the devel
 
 ## System Components
 
-### 1. Waterproof Actuation Module
+### 1. Underwater Robotic Joint
 - Uses **Dynamixel XM430-W350** servo motors enclosed in an aluminum canister.
 - Includes a **capacitive humidity sensor** and **DHT11 temperature sensor** for early leakage detection.
 - Designed with **O-ring sealing** and a **pressure relief plug** to maintain internal pressure stability.
